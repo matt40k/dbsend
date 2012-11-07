@@ -31,7 +31,7 @@ namespace dbSend.Process
             {
                 try
                 {
-                    Directory.Delete(tWorkDir);
+                    Directory.Delete(tWorkDir,true);
                 }
                 catch (Exception ex1)
                 {
@@ -56,7 +56,6 @@ namespace dbSend.Process
             get
             {
                 Console.WriteLine(reference.GetUsrFile);
-                Console.WriteLine(reference.GetFileSize);
                 Console.WriteLine(GetFileName);
                 Console.WriteLine(reference.GetUsrPass);
 
@@ -85,34 +84,6 @@ namespace dbSend.Process
             {
                 logger.Error("FileDoesNotExist: " + fileName);
                 return false;
-            }
-        }
-
-        public bool SetFileSize
-        {
-            get
-            {
-                string fileName = reference.GetUsrFile;
-                if (File.Exists(fileName))
-                {
-                    long length = new FileInfo(fileName).Length;
-                    if (length > 1)
-                    {
-                        reference.SetFileSize= length;
-                        return true;
-                    }
-                    else
-                    {
-                        logger.Error("InvalidFileSize: " + fileName);
-                        return false;
-                    }
-
-                }
-                else
-                {
-                    logger.Error("FileDoesNotExist: " + fileName);
-                    return false;
-                }
             }
         }
 

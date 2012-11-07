@@ -1,9 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using dbSend.Process;
 
 namespace dbSend.Cmd
 {
@@ -11,15 +6,16 @@ namespace dbSend.Cmd
     {
         static void Main(string[] args)
         {
-            // Invoke dbSend class
-            Entry entry = new Entry();
+            // Create Reference
+            Reference reference = new Reference();
 
-            string testFile = @"C:\Windows\system32\drivers\etc\hosts";
+            // Load args into reference
+            ReadArgs readArgs = new ReadArgs(reference);
+            readArgs.Read(args);
 
-            Console.WriteLine(entry.SetUploadFile(testFile));
-            Console.WriteLine(entry.GetRandomPassword);
-            Console.WriteLine(entry.DoIt);
-            Console.ReadKey();
+            // Load Worker
+            Worker worker = new Worker(reference);
+            Console.WriteLine(worker.DoIt);
         }
     }
 }

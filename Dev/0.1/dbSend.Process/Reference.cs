@@ -8,7 +8,6 @@ namespace dbSend.Process
         private static Logger logger = LogManager.GetCurrentClassLogger();
 
         private string usrFile;
-        private long usrFileSize;
         private string usrPass;
 
         private string sftpAddress;
@@ -43,14 +42,6 @@ namespace dbSend.Process
             {
                 logger.Trace("GET usrFile " + usrFile);
                 return usrFile;
-            }
-        }
-        internal long GetFileSize
-        {
-            get
-            {
-                logger.Trace("GET usrFileSize " + usrFileSize);
-                return usrFileSize;
             }
         }
         internal string GetUsrPass
@@ -102,14 +93,6 @@ namespace dbSend.Process
             {
                 logger.Trace(value);
                 usrFile = value;
-            }
-        }
-        internal long SetFileSize
-        {
-            set
-            {
-                logger.Trace(value);
-                usrFileSize = value;
             }
         }
         internal string SetPass
