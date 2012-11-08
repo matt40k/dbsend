@@ -55,21 +55,23 @@ namespace dbSend.Process
         {
             get
             {
-                Console.WriteLine(reference.GetUsrFile);
-                Console.WriteLine(GetFileName);
-                Console.WriteLine(reference.GetUsrPass);
-
-                //Console.WriteLine(reference.GetSftpAddress);
-                //Console.WriteLine(reference.GetSftpUser);
-                //Console.WriteLine(reference.GetSftpPass);
-                Console.WriteLine(reference.GetMaxSegmentSizeInMb);
-                Console.WriteLine(reference.GetFileName);
-                Console.WriteLine(reference.GetWorkDir);
+                // Add some (more) checking of reference data
 
                 Compress compress = new Compress(reference);
-                Console.WriteLine(compress.File);
+                if (!compress.DoIt)
+                {
+                    logger.Error("Compression failed");
+                    return false;
+                }
 
-                return false;
+                Transmit transmit = new Transmit(reference);
+                if (!transmit.DoIt)
+                {
+                    logger.Error("Upload failed");
+                    return false;
+                }
+
+                return true;
             }
         }
 

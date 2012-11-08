@@ -15,7 +15,7 @@ namespace dbSend.Process
             reference = ref1;
         }
 
-        internal bool File
+        internal bool DoIt
         {
             get
             {

@@ -64,14 +64,17 @@ namespace dbSend.Cmd
                         string.IsNullOrWhiteSpace(_sftppass) ||
                         string.IsNullOrWhiteSpace(_sftpaddress)
                    )
-                { return false; }
+                {
+                    logger.Error("SFTP settings not complete!");
+                    Console.WriteLine("ERROR: SFTP settings not complete!");
+                    
+                    return false; }
                 
                 if (!entry.SetSftpUser(_sftpuser)) { return false; }
                 if (!entry.SetSftpPass(_sftppass)) { return false; }
                 if (!entry.SetSftpAddress(_sftpaddress)) { return false; }
-                
 
-                return true;
+                return entry.DoIt;
             }
         }
     }

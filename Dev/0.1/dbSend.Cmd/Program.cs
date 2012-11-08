@@ -16,6 +16,8 @@ namespace dbSend.Cmd
             // Load Worker
             Worker worker = new Worker(reference);
             Console.WriteLine(worker.DoIt);
+
+            Console.ReadKey();
         }
     }
 }

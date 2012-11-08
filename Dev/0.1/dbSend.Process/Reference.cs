@@ -3,7 +3,7 @@ using NLog;
 
 namespace dbSend.Process
 {
-    class Reference
+    internal class Reference
     {
         private static Logger logger = LogManager.GetCurrentClassLogger();
 
@@ -57,8 +57,8 @@ namespace dbSend.Process
         {
             get
             {
-                logger.Trace("GET GetSftpAddress " + GetSftpAddress);
-                return GetSftpAddress;
+                logger.Trace("GET GetSftpAddress " + sftpAddress);
+                return sftpAddress;
             }
         }
         internal string GetSftpUser
