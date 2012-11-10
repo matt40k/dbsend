@@ -18,8 +18,8 @@
             <RowDefinition Height="*" />
         </Grid.RowDefinitions>
         <TextBox Grid.Column="2" HorizontalAlignment="Left" Height="23" Grid.Row="1" Name="userBox" VerticalAlignment="Top" Width="250"/>
-        <TextBox Grid.Column="2" HorizontalAlignment="Left" Height="23" Grid.Row="2" Name="addressBox" VerticalAlignment="Top" Width="250"/>
-        <TextBox Grid.Column="2" HorizontalAlignment="Left" Height="23" Grid.Row="3"  Name="passBox" VerticalAlignment="Top" Width="250"/>
+        <TextBox Grid.Column="2" HorizontalAlignment="Left" Height="23" Grid.Row="2" Name="passBox" VerticalAlignment="Top" Width="250"/>
+        <TextBox Grid.Column="2" HorizontalAlignment="Left" Height="23" Grid.Row="3"  Name="addressBox" VerticalAlignment="Top" Width="250"/>
         <Label Content="Username:" Grid.Column="1" HorizontalAlignment="Left" Grid.Row="1" VerticalAlignment="Top"/>
         <Label Content="Password:" Grid.Column="1" HorizontalAlignment="Left" Grid.Row="2" VerticalAlignment="Top"/>
         <Label Content="Address:" Grid.Column="1" HorizontalAlignment="Left" Grid.Row="3" VerticalAlignment="Top"/>

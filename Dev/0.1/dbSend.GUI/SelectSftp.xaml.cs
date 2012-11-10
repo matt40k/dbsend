@@ -66,7 +66,8 @@ namespace dbSend.GUI
 
             if (isUserOk && isPassOk && isAddressOk)
             {
-                MessageBox.Show("Fin");
+                bool sftpOk = reference.IsSftpConnectionOk;
+                MessageBox.Show(sftpOk.ToString());
             }
         }
 

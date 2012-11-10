@@ -84,5 +84,13 @@ namespace dbSend.GUI
             }
             return false;
         }
+
+        internal bool IsSftpConnectionOk
+        {
+            get
+            {
+                return entry.TestSftp;
+            }
+        }
     }
 }

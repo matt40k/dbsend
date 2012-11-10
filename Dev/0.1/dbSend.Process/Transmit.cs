@@ -16,6 +16,13 @@ namespace dbSend.Process
         public Transmit(Reference ref1)
         {
             reference = ref1;
+            sftp = new SftpClient(reference.GetSftpAddress, 22, reference.GetSftpUser, reference.GetSftpPass);
+        }
+
+        public void UpdateSettings()
+        {
+            sftp = null;
+            sftp = sftp = new SftpClient(reference.GetSftpAddress, 22, reference.GetSftpUser, reference.GetSftpPass);
         }
 
         private string[] getFilesToTransmit
@@ -27,7 +34,7 @@ namespace dbSend.Process
             }
         }
 
-        private bool checkConnection
+        public bool CheckConnection
         {
             get
             {
@@ -57,7 +64,7 @@ namespace dbSend.Process
 
                 while (!sftpASynch.IsCompleted)
                 {
-                    Console.Write(string.Format("Uploaded {0:#########} KB", sftpASynch.UploadedBytes / 1024));
+                    //Console.Write(string.Format("Uploaded {0:#########} KB", sftpASynch.UploadedBytes / 1024));
                     Thread.Sleep(100);
                 }
 
@@ -78,9 +85,7 @@ namespace dbSend.Process
         {
             get
             {
-                sftp = new SftpClient(reference.GetSftpAddress, 22, reference.GetSftpUser, reference.GetSftpPass);
-
-                if (!checkConnection)
+                if (!CheckConnection)
                 {
                     Console.WriteLine("SFTP Connection failed");
                     return false;

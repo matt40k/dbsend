@@ -5,9 +5,11 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "dbSend.Process", "dbSend.Pr
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "dbSend.Cmd", "dbSend.Cmd\dbSend.Cmd.csproj", "{1BE587F1-9F6A-4055-B14F-CED9999720BA}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "dbSend.GUI", "dbSend.GUI\dbSend.GUI.csproj", "{1C18FA08-9B05-4620-A347-42C59C7AB6B7}"
+EndProject
 Global
 	GlobalSection(TeamFoundationVersionControl) = preSolution
-		SccNumberOfProjects = 3
+		SccNumberOfProjects = 4
 		SccEnterpriseProvider = {4CA58AB2-18FA-4F8D-95D4-32DDF27D184C}
 		SccTeamFoundationServer = https://tfs.codeplex.com/tfs/tfs17
 		SccLocalPath0 = ..\\dbSend.Processes
@@ -18,6 +20,9 @@ Global
 		SccProjectUniqueName2 = dbSend.Process\\dbSend.Process.csproj
 		SccProjectName2 = dbSend.Process
 		SccLocalPath2 = dbSend.Process
+		SccProjectUniqueName3 = dbSend.GUI\\dbSend.GUI.csproj
+		SccProjectName3 = dbSend.GUI
+		SccLocalPath3 = dbSend.GUI
 	EndGlobalSection
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -32,6 +37,10 @@ Global
 		{1BE587F1-9F6A-4055-B14F-CED9999720BA}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{1BE587F1-9F6A-4055-B14F-CED9999720BA}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{1BE587F1-9F6A-4055-B14F-CED9999720BA}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1C18FA08-9B05-4620-A347-42C59C7AB6B7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1C18FA08-9B05-4620-A347-42C59C7AB6B7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1C18FA08-9B05-4620-A347-42C59C7AB6B7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1C18FA08-9B05-4620-A347-42C59C7AB6B7}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

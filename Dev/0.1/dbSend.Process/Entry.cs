@@ -51,6 +51,15 @@ namespace dbSend.Process
             reference.SetWorkDir = tWorkDir;
         }
 
+        public bool TestSftp
+        {
+            get
+            {
+                Transmit transmit = new Transmit(reference);
+                return transmit.CheckConnection;
+            }
+        }
+
         public bool DoIt
         {
             get
