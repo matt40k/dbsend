@@ -11,7 +11,7 @@
                 <ColumnDefinition Width="100" />
             </Grid.ColumnDefinitions>
             <TextBox Name="textBox" HorizontalAlignment="Center" Height="23" VerticalAlignment="Center" Width="350" Background="WhiteSmoke" />
-            <Button Name="browseButton" Content="Browse" Grid.Column="1" HorizontalAlignment="Center" VerticalAlignment="Center" Width="75"/>
+            <Button Name="browseButton" Content="Browse" Grid.Column="1" HorizontalAlignment="Center" VerticalAlignment="Center" Width="75" Click="browseButton_Click"/>
             <Button Name="okButton" Content="OK" Grid.Column="2" HorizontalAlignment="Center" VerticalAlignment="Center" Width="75" Click="okButton_Click"/>
         </Grid>
 

@@ -60,5 +60,32 @@ namespace dbSend.GUI
                 this.Close();
             }
         }
+
+        private void browseButton_Click(object sender, RoutedEventArgs e)
+        {
+            ////
+            //Reference: http://www.c-sharpcorner.com/uploadfile/mahesh/openfiledialog-in-wpf/
+            ////
+
+            // Create OpenFileDialog 
+            Microsoft.Win32.OpenFileDialog dlg = new Microsoft.Win32.OpenFileDialog();
+
+            // Set filter for file extension and default file extension 
+            dlg.DefaultExt = ".sql";
+            dlg.Filter = "SQL Backup (.sql)|*.sql|All files (*.*)|*.*";
+
+            // Display OpenFileDialog by calling ShowDialog method 
+            Nullable<bool> result = dlg.ShowDialog();
+
+
+            // Get the selected file name and display in a TextBox 
+            if (result == true)
+            {
+                // Open document 
+                string filename = dlg.FileName;
+                this.textBox.Text = filename;
+            }
+
+        }
     }
 }
