@@ -68,9 +68,14 @@ namespace dbSend.GUI
             {
                 if (reference.IsSftpConnectionOk)
                 {
+                    errorLabel.Content = "";
                     var winName = new ProcessWin(reference);
                     winName.Show();
                     this.Close();
+                }
+                else
+                {
+                    errorLabel.Content = "Error: Unable to connect to server";
                 }
             }
         }

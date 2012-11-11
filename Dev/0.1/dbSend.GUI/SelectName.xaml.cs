@@ -122,6 +122,7 @@ namespace dbSend.GUI
         private void changeToPassword()
         {
             this.textBox.Text = reference.GetPassword;
+            this.labelTitle.Content = "Enter a password";
         }     
     }
 }

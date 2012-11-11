@@ -1,7 +1,7 @@
 ﻿<Window x:Class="dbSend.GUI.SelectSftp"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-        Title="dbSend" Height="300" Width="700" WindowStartupLocation="CenterScreen" ResizeMode="NoResize">
+        Title="dbSend" Height="300" Width="700" WindowStartupLocation="CenterScreen" ResizeMode="NoResize" Icon="icon.ico" Background="#FFCBEECB">
     <Grid>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="*" />
@@ -16,13 +16,16 @@
             <RowDefinition Height="*" />
             <RowDefinition Height="*" />
             <RowDefinition Height="*" />
+            <RowDefinition Height="*" />
         </Grid.RowDefinitions>
-        <TextBox Grid.Column="2" HorizontalAlignment="Left" Height="23" Grid.Row="1" Name="userBox" VerticalAlignment="Top" Width="250"/>
-        <TextBox Grid.Column="2" HorizontalAlignment="Left" Height="23" Grid.Row="2" Name="passBox" VerticalAlignment="Top" Width="250"/>
-        <TextBox Grid.Column="2" HorizontalAlignment="Left" Height="23" Grid.Row="3"  Name="addressBox" VerticalAlignment="Top" Width="250"/>
-        <Label Content="Username:" Grid.Column="1" HorizontalAlignment="Left" Grid.Row="1" VerticalAlignment="Top"/>
-        <Label Content="Password:" Grid.Column="1" HorizontalAlignment="Left" Grid.Row="2" VerticalAlignment="Top"/>
-        <Label Content="Address:" Grid.Column="1" HorizontalAlignment="Left" Grid.Row="3" VerticalAlignment="Top"/>
-        <Button Name="buttonOk" Content="OK" Grid.Column="2" HorizontalAlignment="Left" Grid.Row="4" Width="75" Margin="0,1,0,24" Click="buttonOk_Click"/>
+        <Label Content="SFTP Server details" Grid.Row="1" Grid.ColumnSpan="2" Grid.Column="1"  FontSize="16" HorizontalAlignment="Center"/>
+        <TextBox Grid.Column="2" HorizontalAlignment="Left" Height="30" Grid.Row="2" Name="userBox" VerticalAlignment="Top" Width="250" FontSize="16" />
+        <TextBox Grid.Column="2" HorizontalAlignment="Left" Height="30" Grid.Row="3" Name="passBox" VerticalAlignment="Top" Width="250" FontSize="16" />
+        <TextBox Grid.Column="2" HorizontalAlignment="Left" Height="30" Grid.Row="4"  Name="addressBox" VerticalAlignment="Top" Width="250" FontSize="16" />
+        <Label Content="Username:" Grid.Column="1" HorizontalAlignment="Left" Grid.Row="2" VerticalAlignment="Top" FontSize="16" />
+        <Label Content="Password:" Grid.Column="1" HorizontalAlignment="Left" Grid.Row="3" VerticalAlignment="Top" FontSize="16" />
+        <Label Content="Address:" Grid.Column="1" HorizontalAlignment="Left" Grid.Row="4" VerticalAlignment="Top" FontSize="16" />
+        <Button Name="buttonOk" Content="OK" Grid.Column="2" HorizontalAlignment="Left" Grid.Row="5" Width="75" Height="30" Click="buttonOk_Click" FontSize="16" />
+        <Label Name="errorLabel" Content="" Grid.Column="2" HorizontalAlignment="Right" Grid.Row="6" VerticalAlignment="Top" FontSize="16" Foreground="Red"/>
     </Grid>
 </Window>

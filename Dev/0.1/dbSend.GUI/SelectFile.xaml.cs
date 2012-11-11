@@ -30,7 +30,16 @@ namespace dbSend.GUI
         {
             get
             {
-                return File.Exists(this.textBox.Text);
+                bool result = File.Exists(this.textBox.Text);
+                if (result)
+                {
+                    this.textBox.Background = Brushes.WhiteSmoke;
+                }
+                else
+                {
+                    textBox.Background = errorBackColor;
+                }
+                return result;
             }
         }
 
@@ -47,13 +56,8 @@ namespace dbSend.GUI
 
         private void okButton_Click(object sender, RoutedEventArgs e)
         {
-            if (!doesFileExist)
+            if (doesFileExist)
             {
-                textBox.Background = errorBackColor;
-            }
-            else
-            {
-                textBox.Background = Brushes.WhiteSmoke;
                 reference.SetFileName = this.textBox.Text;
                 var winName = new SelectName(reference);
                 winName.Show();
@@ -63,12 +67,23 @@ namespace dbSend.GUI
 
         private void browseButton_Click(object sender, RoutedEventArgs e)
         {
+            string tmp1 = this.textBox.Text;
+            if (!string.IsNullOrWhiteSpace(tmp1))
+            {
+                tmp1 = System.IO.Path.GetDirectoryName(tmp1);
+            }
+
             ////
             //Reference: http://www.c-sharpcorner.com/uploadfile/mahesh/openfiledialog-in-wpf/
             ////
 
             // Create OpenFileDialog 
             Microsoft.Win32.OpenFileDialog dlg = new Microsoft.Win32.OpenFileDialog();
+
+            if (Directory.Exists(tmp1))
+            {
+                dlg.InitialDirectory = tmp1;
+            }
 
             // Set filter for file extension and default file extension 
             dlg.DefaultExt = ".sql";
@@ -84,8 +99,14 @@ namespace dbSend.GUI
                 // Open document 
                 string filename = dlg.FileName;
                 this.textBox.Text = filename;
+                bool result1 = doesFileExist;
             }
 
+        }
+
+        private void textBox_KeyDown_1(object sender, KeyEventArgs e)
+        {
+           bool result = doesFileExist;
         }
     }
 }
