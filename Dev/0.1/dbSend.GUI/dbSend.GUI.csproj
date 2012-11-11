@@ -58,6 +58,9 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="ProcessWin.xaml.cs">
+      <DependentUpon>ProcessWin.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Reference.cs" />
     <Compile Include="SelectFile.xaml.cs">
       <DependentUpon>SelectFile.xaml</DependentUpon>
@@ -80,6 +83,10 @@
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Page Include="ProcessWin.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="SelectFile.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>

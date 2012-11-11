@@ -92,5 +92,13 @@ namespace dbSend.GUI
                 return entry.TestSftp;
             }
         }
+
+        internal bool DoIt
+        {
+            get
+            {
+                return entry.DoIt;
+            }
+        }
     }
 }

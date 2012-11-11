@@ -58,9 +58,9 @@ namespace dbSend.Process
             {
                 sftp.Connect();
                 var mem = File.OpenRead(fileToUpload);
-                var asynch = sftp.BeginUploadFile(mem, @"/", true, null, null);
-                var sftpASynch = asynch as Renci.SshNet.Sftp.SftpUploadAsyncResult;
 
+                var asynch = sftp.BeginUploadFile(mem, @"", true, null, null);
+                var sftpASynch = asynch as Renci.SshNet.Sftp.SftpUploadAsyncResult;
 
                 while (!sftpASynch.IsCompleted)
                 {
@@ -95,6 +95,7 @@ namespace dbSend.Process
 
                 foreach (string _file in _files)
                 {
+                    logger.Trace("File: " + _file);
                     if (uploadFile(_file))
                     {
                         File.Delete(_file);
