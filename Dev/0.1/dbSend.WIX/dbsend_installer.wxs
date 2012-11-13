@@ -1,0 +1,93 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Wix xmlns="http://schemas.microsoft.com/wix/2006/wi">
+  <Product Name="dbSend" Id="*" UpgradeCode="89179001-2C10-4DB8-AF24-865BE44141EA" Language="1033" Codepage="1252" Version="0.1.0.0" Manufacturer="Matt Smith">
+    <Package Id="*" Keywords="Installer" Description="dbSend" Comments="dbSend" Manufacturer="Matt Smith" InstallerVersion="100" Languages="1033" Compressed="yes" SummaryCodepage="1252" />
+    <Property Id="PREVIOUSVERSIONSINSTALLED" Secure="yes" />
+    <Upgrade Id="A1A24466-145B-4004-B877-AC07EB88BDB2">
+      <UpgradeVersion OnlyDetect="no" Property="PREVIOUSVERSIONSINSTALLED" Minimum="0.0.1" IncludeMinimum="yes" Maximum="0.1.0" IncludeMaximum="yes" />
+    </Upgrade>
+    <Media Id="1" Cabinet="dbsend.cab" EmbedCab="yes" />
+    <Directory Id="TARGETDIR" Name="SourceDir">
+      <Directory Id="ProgramFilesFolder" Name="PFiles">
+        <Directory Id="ManufacturerFolder" Name="Matt Smith">
+          <Directory Id="INSTALLDIR" Name="dbSend">
+			<Component Id="dbsendcmdEXE" Guid="*">
+				<File Id="dbsendcmdEXE" Name="dbSend.Cmd.exe" DiskId="1" Source="F:\Build\dbSend\dbSend.Cmd.exe" KeyPath="yes" />
+			</Component>
+			<Component Id="dbsendcmdPDB" Guid="*">
+				<File Id="dbsendcmdPDB" Name="dbSend.Cmd.pdb" DiskId="1" Source="F:\Build\dbSend\dbSend.Cmd.pdb" KeyPath="yes" />
+			</Component>
+			<Component Id="dbsendEXE" Guid="*">
+				<File Id="dbsendEXE" Name="dbSend.exe" DiskId="1" Source="F:\Build\dbSend\dbSend.exe" KeyPath="yes" />
+				<Shortcut Id="startmenuDBSEND" Directory="ProgramMenuDir" Name="dbSend" WorkingDirectory="INSTALLDIR" Icon="appicon.ico" IconIndex="0" Advertise="yes" />
+			</Component>
+			<Component Id="dbsendPDB" Guid="*">
+				<File Id="dbsendPDB" Name="dbSend.pdb" DiskId="1" Source="F:\Build\dbSend\dbSend.pdb" KeyPath="yes" />
+			</Component>
+			<Component Id="dbsendprocessDLL" Guid="*">
+				<File Id="dbsendprocessDLL" Name="dbSend.Process.dll" DiskId="1" Source="F:\Build\dbSend\dbSend.Process.dll" KeyPath="yes" />
+			</Component>
+			<Component Id="dbsendprocessPDB" Guid="*">
+				<File Id="dbsendprocessPDB" Name="dbSend.Process.pdb" DiskId="1" Source="F:\Build\dbSend\dbSend.Process.pdb" KeyPath="yes" />
+			</Component>
+			<Component Id="ioniczipreducedDLL" Guid="*">
+				<File Id="ioniczipreducedDLL" Name="Ionic.Zip.Reduced.dll" DiskId="1" Source="F:\Build\dbSend\Ionic.Zip.Reduced.dll" KeyPath="yes" />
+			</Component>
+			<Component Id="nlogCONFIG" Guid="*">
+				<File Id="nlogCONFIG" Name="NLog.config" DiskId="1" Source="F:\Build\dbSend\NLog.config" KeyPath="yes" />
+			</Component>
+			<Component Id="nlogDLL" Guid="*">
+				<File Id="nlogDLL" Name="NLog.dll" DiskId="1" Source="F:\Build\dbSend\NLog.dll" KeyPath="yes" />
+			</Component>
+			<Component Id="rencisshnetDLL" Guid="*">
+				<File Id="rencisshnetDLL" Name="Renci.SshNet.dll" DiskId="1" Source="F:\Build\dbSend\\Renci.SshNet.dll" KeyPath="yes" />
+			</Component>
+          </Directory>
+        </Directory>
+      </Directory>
+      <Directory Id="ProgramMenuFolder" Name="Programs">
+        <Directory Id="ProgramMenuDir" Name="dbSend">
+          <Component Id="ProgramMenuDir" Guid="0443D765-E713-42C0-BADA-2FDF19799346">
+            <RemoveFolder Id="ProgramMenuDir" On="uninstall" />
+          </Component>
+        </Directory>
+      </Directory>
+      <Directory Id="DesktopFolder" Name="Desktop" />
+    </Directory>
+    <Feature Id="Complete" Level="1">
+	  <ComponentRef Id="dbsendcmdEXE" />
+	  <ComponentRef Id="dbsendcmdPDB" />
+	  <ComponentRef Id="dbsendEXE" />
+	  <ComponentRef Id="dbsendPDB" />
+	  <ComponentRef Id="dbsendprocessDLL" />
+	  <ComponentRef Id="dbsendprocessPDB" />
+	  <ComponentRef Id="ioniczipreducedDLL" />
+	  <ComponentRef Id="nlogCONFIG" />
+	  <ComponentRef Id="nlogDLL" />
+	  <ComponentRef Id="rencisshnetDLL" />
+      <ComponentRef Id="ProgramMenuDir" />
+    </Feature>
+    <WixVariable Id="WixUILicenseRtf" Value="license.rtf" />
+    <WixVariable Id="WixUIBannerBmp" Value="Banner.bmp" />
+    <WixVariable Id="WixUIDialogBmp" Value="Dialog.bmp" />
+    <Property Id="WIXUI_INSTALLDIR" Value="INSTALLDIR" />
+    <Property Id="ARPPRODUCTICON">appicon.ico</Property>
+    <Icon Id="appicon.ico" SourceFile="icon.ico" />
+    <Property Id="ARPNOREPAIR">1</Property>
+    <Property Id="ARPCOMMENTS">dbSend</Property>
+    <Property Id="ARPCONTACT">http://www.matt40k.co.uk/</Property>
+    <Property Id="ARPHELPLINK">http://dbsend.codeplex.com/workitem/list/basic</Property>
+    <Property Id="ARPURLINFOABOUT">http://dbsend.codeplex.com/</Property>
+    <Property Id="ARPURLUPDATEABOUT">http://dbsend.codeplex.com/</Property>
+    <Property Id="ARPHELPTELEPHONE">NA</Property>
+    <Property Id="ARPREADME">README</Property>
+    <Property Id="NETFRAMEWORK40FULL" Secure="yes" />
+    <UI>
+      <UIRef Id="WixUI_InstallDir" />
+    </UI>
+    <InstallExecuteSequence>
+      <RemoveExistingProducts After="InstallValidate" />
+    </InstallExecuteSequence>
+    <Condition Message="You need to be an administrator to install this product.">AdminUser</Condition>
+  </Product>
+</Wix>

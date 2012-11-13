@@ -7,9 +7,20 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "dbSend.Cmd", "dbSend.Cmd\db
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "dbSend.GUI", "dbSend.GUI\dbSend.GUI.csproj", "{1C18FA08-9B05-4620-A347-42C59C7AB6B7}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "dbSend.Test", "dbSend.Test\dbSend.Test.csproj", "{3C044FB8-3AAC-41FA-8AF0-2C8C41068ACE}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "dbSend.WIX", "dbSend.WIX\dbSend.WIX.csproj", "{8231CD8F-38F4-4A03-B2F8-262C64B0262A}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = ".nuget", ".nuget", "{D73767E8-79B1-49DB-B261-4F391E0995DF}"
+	ProjectSection(SolutionItems) = preProject
+		.nuget\NuGet.Config = .nuget\NuGet.Config
+		.nuget\NuGet.exe = .nuget\NuGet.exe
+		.nuget\NuGet.targets = .nuget\NuGet.targets
+	EndProjectSection
+EndProject
 Global
 	GlobalSection(TeamFoundationVersionControl) = preSolution
-		SccNumberOfProjects = 4
+		SccNumberOfProjects = 6
 		SccEnterpriseProvider = {4CA58AB2-18FA-4F8D-95D4-32DDF27D184C}
 		SccTeamFoundationServer = https://tfs.codeplex.com/tfs/tfs17
 		SccLocalPath0 = ..\\dbSend.Processes
@@ -23,6 +34,12 @@ Global
 		SccProjectUniqueName3 = dbSend.GUI\\dbSend.GUI.csproj
 		SccProjectName3 = dbSend.GUI
 		SccLocalPath3 = dbSend.GUI
+		SccProjectUniqueName4 = dbSend.Test\\dbSend.Test.csproj
+		SccProjectName4 = dbSend.Test
+		SccLocalPath4 = dbSend.Test
+		SccProjectUniqueName5 = dbSend.WIX\\dbSend.WIX.csproj
+		SccProjectName5 = dbSend.WIX
+		SccLocalPath5 = dbSend.WIX
 	EndGlobalSection
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -41,6 +58,14 @@ Global
 		{1C18FA08-9B05-4620-A347-42C59C7AB6B7}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{1C18FA08-9B05-4620-A347-42C59C7AB6B7}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{1C18FA08-9B05-4620-A347-42C59C7AB6B7}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3C044FB8-3AAC-41FA-8AF0-2C8C41068ACE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3C044FB8-3AAC-41FA-8AF0-2C8C41068ACE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3C044FB8-3AAC-41FA-8AF0-2C8C41068ACE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3C044FB8-3AAC-41FA-8AF0-2C8C41068ACE}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8231CD8F-38F4-4A03-B2F8-262C64B0262A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8231CD8F-38F4-4A03-B2F8-262C64B0262A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8231CD8F-38F4-4A03-B2F8-262C64B0262A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8231CD8F-38F4-4A03-B2F8-262C64B0262A}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
