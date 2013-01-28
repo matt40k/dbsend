@@ -59,7 +59,7 @@
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\dbSend.Process\dbSend.Process.csproj">
-      <Project>{93c005f7-b8d2-4cb5-a5e2-cad3e54d1184}</Project>
+      <Project>{13fd2eea-34b0-4c04-bdd4-8d6abc80ca21}</Project>
       <Name>dbSend.Process</Name>
     </ProjectReference>
   </ItemGroup>

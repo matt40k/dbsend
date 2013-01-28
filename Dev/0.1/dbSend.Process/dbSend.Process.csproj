@@ -4,17 +4,18 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{8231CD8F-38F4-4A03-B2F8-262C64B0262A}</ProjectGuid>
+    <ProjectGuid>{13FD2EEA-34B0-4C04-BDD4-8D6ABC80CA21}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>dbSend.WIX</RootNamespace>
-    <AssemblyName>dbSend.WIX</AssemblyName>
-    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <RootNamespace>dbSend.Process</RootNamespace>
+    <AssemblyName>dbSend.Process</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <SccProjectName>SAK</SccProjectName>
     <SccLocalPath>SAK</SccLocalPath>
     <SccAuxPath>SAK</SccAuxPath>
     <SccProvider>SAK</SccProvider>
+    <TargetFrameworkProfile>Client</TargetFrameworkProfile>
     <SolutionDir Condition="$(SolutionDir) == '' Or $(SolutionDir) == '*Undefined*'">..\</SolutionDir>
     <RestorePackages>true</RestorePackages>
   </PropertyGroup>
@@ -32,7 +33,7 @@
     <PlatformTarget>AnyCPU</PlatformTarget>
     <DebugType>pdbonly</DebugType>
     <Optimize>true</Optimize>
-    <OutputPath>F:\Build\dbSend\</OutputPath>
+    <OutputPath>bin\Release\</OutputPath>
     <DefineConstants>TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
@@ -41,24 +42,28 @@
     <StartupObject />
   </PropertyGroup>
   <ItemGroup>
-    <None Include="dbsend_installer.wxs" />
+    <None Include="App.config" />
+    <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\dbSend.GUI\dbSend.GUI.csproj">
-      <Project>{1c18fa08-9b05-4620-a347-42c59c7ab6b7}</Project>
-      <Name>dbSend.GUI</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\dbSend.Test\dbSend.Test.csproj">
-      <Project>{3c044fb8-3aac-41fa-8af0-2c8c41068ace}</Project>
-      <Name>dbSend.Test</Name>
-    </ProjectReference>
+    <Compile Include="Compress.cs" />
+    <Compile Include="Entry.cs" />
+    <Compile Include="Randomizor.cs" />
+    <Compile Include="Reference.cs" />
+    <Compile Include="Transmit.cs" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Banner.bmp" />
-    <Content Include="Dialog.bmp" />
+    <Reference Include="Ionic.Zip.Reduced">
+      <HintPath>..\packages\DotNetZip.Reduced.1.9.1.8\lib\net20\Ionic.Zip.Reduced.dll</HintPath>
+    </Reference>
+    <Reference Include="NLog">
+      <HintPath>..\packages\NLog.2.0.0.2000\lib\net40\NLog.dll</HintPath>
+    </Reference>
+    <Reference Include="Renci.SshNet">
+      <HintPath>..\packages\SSH.NET.2013.1.27\lib\net40\Renci.SshNet.dll</HintPath>
+    </Reference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
-  <Import Project="$(SolutionDir)\.nuget\nuget.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
   <Target Name="BeforeBuild">

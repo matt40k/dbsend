@@ -59,7 +59,7 @@ namespace dbSend.Process
                 sftp.Connect();
                 var mem = File.OpenRead(fileToUpload);
 
-                var asynch = sftp.BeginUploadFile(mem, @"", true, null, null);
+                var asynch = sftp.BeginUploadFile(mem, null, true, null, null);
                 var sftpASynch = asynch as Renci.SshNet.Sftp.SftpUploadAsyncResult;
 
                 while (!sftpASynch.IsCompleted)

@@ -1,5 +1,5 @@
 <?xml version="1.0"?>
-<package xmlns="http://schemas.microsoft.com/packaging/2010/07/nuspec.xsd">
+<package xmlns="http://schemas.microsoft.com/packaging/2011/08/nuspec.xsd">
   <metadata>
     <id>DotNetZip.Reduced</id>
     <version>1.9.1.8</version>
@@ -12,5 +12,8 @@
     <description>DotNetZip is an easy-to-use, FAST, FREE class library and toolset for manipulating zip files or folders.</description>
     <summary>DotNetZip is an easy-to-use, FAST, FREE class library and toolset for manipulating zip files or folders.</summary>
     <tags>zip</tags>
+    <references>
+      <reference file="Ionic.Zip.Reduced.dll" />
+    </references>
   </metadata>
 </package>

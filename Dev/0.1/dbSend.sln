@@ -1,22 +1,15 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Express 2012 for Windows Desktop
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "dbSend.Process", "dbSend.Process\dbSend.Process.csproj", "{93C005F7-B8D2-4CB5-A5E2-CAD3E54D1184}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "dbSend.Cmd", "dbSend.Cmd\dbSend.Cmd.csproj", "{1BE587F1-9F6A-4055-B14F-CED9999720BA}"
-EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "dbSend.GUI", "dbSend.GUI\dbSend.GUI.csproj", "{1C18FA08-9B05-4620-A347-42C59C7AB6B7}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "dbSend.Test", "dbSend.Test\dbSend.Test.csproj", "{3C044FB8-3AAC-41FA-8AF0-2C8C41068ACE}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "dbSend.WIX", "dbSend.WIX\dbSend.WIX.csproj", "{8231CD8F-38F4-4A03-B2F8-262C64B0262A}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = ".nuget", ".nuget", "{D73767E8-79B1-49DB-B261-4F391E0995DF}"
-	ProjectSection(SolutionItems) = preProject
-		.nuget\NuGet.Config = .nuget\NuGet.Config
-		.nuget\NuGet.exe = .nuget\NuGet.exe
-		.nuget\NuGet.targets = .nuget\NuGet.targets
-	EndProjectSection
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "dbSend.Cmd", "dbSend.Cmd\dbSend.Cmd.csproj", "{BE09BCF5-E331-4807-9B96-15B2B7DD06C1}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "dbSend.Process", "dbSend.Process\dbSend.Process.csproj", "{13FD2EEA-34B0-4C04-BDD4-8D6ABC80CA21}"
 EndProject
 Global
 	GlobalSection(TeamFoundationVersionControl) = preSolution
@@ -25,35 +18,27 @@ Global
 		SccTeamFoundationServer = https://tfs.codeplex.com/tfs/tfs17
 		SccLocalPath0 = ..\\dbSend.Processes
 		SccProjectFilePathRelativizedFromConnection0 = ..\\0.1\\
-		SccProjectUniqueName1 = dbSend.Cmd\\dbSend.Cmd.csproj
-		SccProjectName1 = dbSend.Cmd
-		SccLocalPath1 = dbSend.Cmd
-		SccProjectUniqueName2 = dbSend.Process\\dbSend.Process.csproj
-		SccProjectName2 = dbSend.Process
-		SccLocalPath2 = dbSend.Process
-		SccProjectUniqueName3 = dbSend.GUI\\dbSend.GUI.csproj
-		SccProjectName3 = dbSend.GUI
-		SccLocalPath3 = dbSend.GUI
-		SccProjectUniqueName4 = dbSend.Test\\dbSend.Test.csproj
-		SccProjectName4 = dbSend.Test
-		SccLocalPath4 = dbSend.Test
-		SccProjectUniqueName5 = dbSend.WIX\\dbSend.WIX.csproj
-		SccProjectName5 = dbSend.WIX
-		SccLocalPath5 = dbSend.WIX
+		SccProjectUniqueName1 = dbSend.GUI\\dbSend.GUI.csproj
+		SccProjectName1 = dbSend.GUI
+		SccLocalPath1 = dbSend.GUI
+		SccProjectUniqueName2 = dbSend.Test\\dbSend.Test.csproj
+		SccProjectName2 = dbSend.Test
+		SccLocalPath2 = dbSend.Test
+		SccProjectUniqueName3 = dbSend.WIX\\dbSend.WIX.csproj
+		SccProjectName3 = dbSend.WIX
+		SccLocalPath3 = dbSend.WIX
+		SccProjectUniqueName4 = dbSend.Cmd\\dbSend.Cmd.csproj
+		SccProjectName4 = dbSend.Cmd
+		SccLocalPath4 = dbSend.Cmd
+		SccProjectUniqueName5 = dbSend.Process\\dbSend.Process.csproj
+		SccProjectName5 = dbSend.Process
+		SccLocalPath5 = dbSend.Process
 	EndGlobalSection
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{93C005F7-B8D2-4CB5-A5E2-CAD3E54D1184}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{93C005F7-B8D2-4CB5-A5E2-CAD3E54D1184}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{93C005F7-B8D2-4CB5-A5E2-CAD3E54D1184}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{93C005F7-B8D2-4CB5-A5E2-CAD3E54D1184}.Release|Any CPU.Build.0 = Release|Any CPU
-		{1BE587F1-9F6A-4055-B14F-CED9999720BA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{1BE587F1-9F6A-4055-B14F-CED9999720BA}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{1BE587F1-9F6A-4055-B14F-CED9999720BA}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{1BE587F1-9F6A-4055-B14F-CED9999720BA}.Release|Any CPU.Build.0 = Release|Any CPU
 		{1C18FA08-9B05-4620-A347-42C59C7AB6B7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{1C18FA08-9B05-4620-A347-42C59C7AB6B7}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{1C18FA08-9B05-4620-A347-42C59C7AB6B7}.Release|Any CPU.ActiveCfg = Release|Any CPU
@@ -66,6 +51,14 @@ Global
 		{8231CD8F-38F4-4A03-B2F8-262C64B0262A}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{8231CD8F-38F4-4A03-B2F8-262C64B0262A}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{8231CD8F-38F4-4A03-B2F8-262C64B0262A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{BE09BCF5-E331-4807-9B96-15B2B7DD06C1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BE09BCF5-E331-4807-9B96-15B2B7DD06C1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BE09BCF5-E331-4807-9B96-15B2B7DD06C1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BE09BCF5-E331-4807-9B96-15B2B7DD06C1}.Release|Any CPU.Build.0 = Release|Any CPU
+		{13FD2EEA-34B0-4C04-BDD4-8D6ABC80CA21}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{13FD2EEA-34B0-4C04-BDD4-8D6ABC80CA21}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{13FD2EEA-34B0-4C04-BDD4-8D6ABC80CA21}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{13FD2EEA-34B0-4C04-BDD4-8D6ABC80CA21}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

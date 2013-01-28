@@ -135,13 +135,13 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\dbSend.Process\dbSend.Process.csproj">
-      <Project>{93c005f7-b8d2-4cb5-a5e2-cad3e54d1184}</Project>
-      <Name>dbSend.Process</Name>
-    </ProjectReference>
+    <Resource Include="icon.ico" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="icon.ico" />
+    <ProjectReference Include="..\dbSend.Process\dbSend.Process.csproj">
+      <Project>{13fd2eea-34b0-4c04-bdd4-8d6abc80ca21}</Project>
+      <Name>dbSend.Process</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
