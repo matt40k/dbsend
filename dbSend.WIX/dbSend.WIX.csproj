@@ -11,10 +11,6 @@
     <AssemblyName>dbSend.WIX</AssemblyName>
     <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
-    <SccProjectName>SAK</SccProjectName>
-    <SccLocalPath>SAK</SccLocalPath>
-    <SccAuxPath>SAK</SccAuxPath>
-    <SccProvider>SAK</SccProvider>
     <SolutionDir Condition="$(SolutionDir) == '' Or $(SolutionDir) == '*Undefined*'">..\</SolutionDir>
     <RestorePackages>true</RestorePackages>
   </PropertyGroup>
@@ -32,7 +28,7 @@
     <PlatformTarget>AnyCPU</PlatformTarget>
     <DebugType>pdbonly</DebugType>
     <Optimize>true</Optimize>
-    <OutputPath>F:\Build\dbSend\</OutputPath>
+    <OutputPath>bin\Release\</OutputPath>
     <DefineConstants>TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
@@ -48,17 +44,12 @@
       <Project>{1c18fa08-9b05-4620-a347-42c59c7ab6b7}</Project>
       <Name>dbSend.GUI</Name>
     </ProjectReference>
-    <ProjectReference Include="..\dbSend.Test\dbSend.Test.csproj">
-      <Project>{3c044fb8-3aac-41fa-8af0-2c8c41068ace}</Project>
-      <Name>dbSend.Test</Name>
-    </ProjectReference>
   </ItemGroup>
   <ItemGroup>
     <Content Include="Banner.bmp" />
     <Content Include="Dialog.bmp" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
-  <Import Project="$(SolutionDir)\.nuget\nuget.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
   <Target Name="BeforeBuild">
