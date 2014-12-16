@@ -1,12 +1,11 @@
 ﻿using System;
-using NLog;
 
 namespace dbSend.Cmd
 {
-    class ReadArgs
+    internal class ReadArgs
     {
-        private static Logger logger = LogManager.GetCurrentClassLogger();
-        private Reference reference;
+        private static readonly Logger logger = LogManager.GetCurrentClassLogger();
+        private readonly Reference reference;
 
         internal ReadArgs(Reference ref1)
         {
@@ -17,13 +16,12 @@ namespace dbSend.Cmd
         {
             if (args.Length == 0)
             {
-
             }
             else
             {
-                for (int i = 0; i < args.Length; i++)
+                for (var i = 0; i < args.Length; i++)
                 {
-                    string str = args[i].ToUpper();
+                    var str = args[i].ToUpper();
                     if (str.StartsWith("/FILE"))
                     {
                         reference.SetFile = GetParameterValue(args, "/FILE");
@@ -56,9 +54,9 @@ namespace dbSend.Cmd
         {
             try
             {
-                for (int i = 0; i < commandParameters.Length; i++)
+                for (var i = 0; i < commandParameters.Length; i++)
                 {
-                    string str = commandParameters[i];
+                    var str = commandParameters[i];
                     if (str.ToUpper().StartsWith(parameterName.ToUpper()))
                     {
                         if (parameterName == str)
@@ -75,6 +73,5 @@ namespace dbSend.Cmd
             }
             return "";
         }
-
     }
 }

@@ -1,22 +1,15 @@
-﻿using System;
-using NLog;
-
-namespace dbSend.Process
+﻿namespace dbSend.Process
 {
     internal class Reference
     {
-        private static Logger logger = LogManager.GetCurrentClassLogger();
-
+        private static readonly Logger logger = LogManager.GetCurrentClassLogger();
+        private string fileName;
+        private int maxSegmentSizeInMb;
+        private string sftpAddress;
+        private string sftpPass;
+        private string sftpUser;
         private string usrFile;
         private string usrPass;
-
-        private string sftpAddress;
-        private string sftpUser;
-        private string sftpPass;
-
-        private int maxSegmentSizeInMb;
-
-        private string fileName;
         private string workDir;
 
         internal string GetWorkDir
@@ -36,6 +29,7 @@ namespace dbSend.Process
                 return fileName;
             }
         }
+
         internal string GetUsrFile
         {
             get
@@ -44,6 +38,7 @@ namespace dbSend.Process
                 return usrFile;
             }
         }
+
         internal string GetUsrPass
         {
             get
@@ -61,6 +56,7 @@ namespace dbSend.Process
                 return sftpAddress;
             }
         }
+
         internal string GetSftpUser
         {
             get
@@ -69,6 +65,7 @@ namespace dbSend.Process
                 return sftpUser;
             }
         }
+
         internal string GetSftpPass
         {
             get
@@ -77,6 +74,7 @@ namespace dbSend.Process
                 return sftpPass;
             }
         }
+
         internal int GetMaxSegmentSizeInMb
         {
             get
@@ -86,7 +84,6 @@ namespace dbSend.Process
             }
         }
 
-
         internal string SetUsrFile
         {
             set
@@ -95,6 +92,7 @@ namespace dbSend.Process
                 usrFile = value;
             }
         }
+
         internal string SetPass
         {
             set
@@ -103,6 +101,7 @@ namespace dbSend.Process
                 usrPass = value;
             }
         }
+
         internal string SetSftpAddress
         {
             set
@@ -111,6 +110,7 @@ namespace dbSend.Process
                 sftpAddress = value;
             }
         }
+
         internal string SetSftpUser
         {
             set
@@ -119,6 +119,7 @@ namespace dbSend.Process
                 sftpUser = value;
             }
         }
+
         internal string SetSftpPass
         {
             set
@@ -127,6 +128,7 @@ namespace dbSend.Process
                 sftpPass = value;
             }
         }
+
         internal int SetMaxSegmentSizeInMb
         {
             set
@@ -135,6 +137,7 @@ namespace dbSend.Process
                 maxSegmentSizeInMb = value;
             }
         }
+
         internal string SetFileName
         {
             set
@@ -143,6 +146,7 @@ namespace dbSend.Process
                 fileName = value;
             }
         }
+
         internal string SetWorkDir
         {
             set

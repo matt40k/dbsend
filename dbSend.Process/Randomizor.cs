@@ -1,23 +1,21 @@
 ﻿using System;
-using System.Security.Cryptography;
-using NLog;
 
 namespace dbSend.Process
 {
     /// <summary>
-    /// Reference: http://trikks.wordpress.com/2012/04/24/creating-a-very-random-password-generator-in-c/
+    ///     Reference: http://trikks.wordpress.com/2012/04/24/creating-a-very-random-password-generator-in-c/
     /// </summary>
     internal class Randomizor
     {
         private static Logger logger = LogManager.GetCurrentClassLogger();
 
         /// <summary>
-        /// Random declaration must be done outside the method to actually generate random numbers
+        ///     Random declaration must be done outside the method to actually generate random numbers
         /// </summary>
         private static readonly Random Random = new Random();
 
         /// <summary>
-        /// Generate passwords
+        ///     Generate passwords
         /// </summary>
         /// <param name="passwordLength"></param>
         /// <returns></returns>
@@ -25,7 +23,7 @@ namespace dbSend.Process
         {
             get
             {
-                int seed = Random.Next(1, int.MaxValue);
+                var seed = Random.Next(1, int.MaxValue);
                 const string allowedChars = "abcdefghijkmnopqrstuvwxyzABCDEFGHJKLMNOPQRSTUVWXYZ0123456789";
 
                 var chars = new char[12];

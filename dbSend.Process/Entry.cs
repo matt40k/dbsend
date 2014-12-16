@@ -1,21 +1,74 @@
 ﻿using System;
 using System.IO;
-using NLog;
 
 namespace dbSend.Process
 {
     public class Entry
     {
-        private static Logger logger = LogManager.GetCurrentClassLogger();
-
-        private Reference reference;
+        private static readonly Logger logger = LogManager.GetCurrentClassLogger();
+        private readonly Reference reference;
 
         public Entry()
         {
             reference = new Reference();
-            
+
             SetMaxSegSizeInMb();
             SetWorkDir();
+        }
+
+        public bool TestSftp
+        {
+            get
+            {
+                var transmit = new Transmit(reference);
+                return transmit.CheckConnection;
+            }
+        }
+
+        public bool DoIt
+        {
+            get
+            {
+                // Add some (more) checking of reference data
+
+                var compress = new Compress(reference);
+                if (!compress.DoIt)
+                {
+                    logger.Error("Compression failed");
+                    return false;
+                }
+
+                var transmit = new Transmit(reference);
+                if (!transmit.DoIt)
+                {
+                    logger.Error("Upload failed");
+                    return false;
+                }
+
+                return true;
+            }
+        }
+
+        public string GetRandomPassword
+        {
+            get
+            {
+                var ranPass = Randomizor.PasswordGenerator;
+                reference.SetPass = ranPass;
+                return ranPass;
+            }
+        }
+
+        public string GetFileName
+        {
+            get
+            {
+                if (string.IsNullOrWhiteSpace(reference.GetFileName))
+                {
+                    reference.SetFileName = Path.GetFileNameWithoutExtension(reference.GetUsrFile);
+                }
+                return reference.GetFileName;
+            }
         }
 
         private void SetMaxSegSizeInMb()
@@ -25,13 +78,13 @@ namespace dbSend.Process
 
         private void SetWorkDir()
         {
-            string tmpDir = Path.GetTempPath();
-            string tWorkDir = Path.Combine(tmpDir, "dbSend");
+            var tmpDir = Path.GetTempPath();
+            var tWorkDir = Path.Combine(tmpDir, "dbSend");
             if (Directory.Exists(tWorkDir))
             {
                 try
                 {
-                    Directory.Delete(tWorkDir,true);
+                    Directory.Delete(tWorkDir, true);
                 }
                 catch (Exception ex1)
                 {
@@ -51,39 +104,6 @@ namespace dbSend.Process
             reference.SetWorkDir = tWorkDir;
         }
 
-        public bool TestSftp
-        {
-            get
-            {
-                Transmit transmit = new Transmit(reference);
-                return transmit.CheckConnection;
-            }
-        }
-
-        public bool DoIt
-        {
-            get
-            {
-                // Add some (more) checking of reference data
-
-                Compress compress = new Compress(reference);
-                if (!compress.DoIt)
-                {
-                    logger.Error("Compression failed");
-                    return false;
-                }
-
-                Transmit transmit = new Transmit(reference);
-                if (!transmit.DoIt)
-                {
-                    logger.Error("Upload failed");
-                    return false;
-                }
-
-                return true;
-            }
-        }
-
         public bool SetUploadFile(string fileName)
         {
             if (File.Exists(fileName))
@@ -91,33 +111,8 @@ namespace dbSend.Process
                 reference.SetUsrFile = fileName;
                 return true;
             }
-            else
-            {
-                logger.Error("FileDoesNotExist: " + fileName);
-                return false;
-            }
-        }
-
-        public string GetRandomPassword
-        {
-            get
-            {
-                string ranPass = Randomizor.PasswordGenerator;
-                reference.SetPass = ranPass;
-                return ranPass;
-            }
-        }
-
-        public string GetFileName
-        {
-            get
-            {
-                if (string.IsNullOrWhiteSpace(reference.GetFileName))
-                {
-                    reference.SetFileName = Path.GetFileNameWithoutExtension(reference.GetUsrFile);
-                }
-                return reference.GetFileName;
-            }
+            logger.Error("FileDoesNotExist: " + fileName);
+            return false;
         }
 
         public bool SetFileName(string fileName)
@@ -130,7 +125,6 @@ namespace dbSend.Process
             logger.Error("Filename entered is Null");
             return false;
         }
-
 
         public bool SetPassword(string pass)
         {

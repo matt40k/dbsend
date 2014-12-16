@@ -2,19 +2,19 @@
 
 namespace dbSend.Cmd
 {
-    class Program
+    internal class Program
     {
-        static void Main(string[] args)
+        private static void Main(string[] args)
         {
             // Create Reference
-            Reference reference = new Reference();
+            var reference = new Reference();
 
             // Load args into reference
-            ReadArgs readArgs = new ReadArgs(reference);
+            var readArgs = new ReadArgs(reference);
             readArgs.Read(args);
 
             // Load Worker
-            Worker worker = new Worker(reference);
+            var worker = new Worker(reference);
             Console.WriteLine(worker.DoIt);
 
             Console.ReadKey();

@@ -1,25 +1,18 @@
-﻿using System;
-using System.IO;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
+﻿using System.IO;
 using System.Windows;
-using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Shapes;
+using Microsoft.Win32;
 
 namespace dbSend.GUI
 {
     /// <summary>
-    /// Interaction logic for SelectFile.xaml
+    ///     Interaction logic for SelectFile.xaml
     /// </summary>
     public partial class SelectFile : Window
     {
-        private Reference reference;
+        private readonly Reference reference;
+
         public SelectFile()
         {
             reference = new Reference();
@@ -30,10 +23,10 @@ namespace dbSend.GUI
         {
             get
             {
-                bool result = File.Exists(this.textBox.Text);
+                var result = File.Exists(textBox.Text);
                 if (result)
                 {
-                    this.textBox.Background = Brushes.WhiteSmoke;
+                    textBox.Background = Brushes.WhiteSmoke;
                 }
                 else
                 {
@@ -47,8 +40,8 @@ namespace dbSend.GUI
         {
             get
             {
-                SolidColorBrush errBackColor = new SolidColorBrush();
-                errBackColor.Color = (Color)ColorConverter.ConvertFromString("#FFFF6A6A");
+                var errBackColor = new SolidColorBrush();
+                errBackColor.Color = (Color) ColorConverter.ConvertFromString("#FFFF6A6A");
                 errBackColor.Opacity = 0.4;
                 return errBackColor;
             }
@@ -58,19 +51,19 @@ namespace dbSend.GUI
         {
             if (doesFileExist)
             {
-                reference.SetFileName = this.textBox.Text;
+                reference.SetFileName = textBox.Text;
                 var winName = new SelectName(reference);
                 winName.Show();
-                this.Close();
+                Close();
             }
         }
 
         private void browseButton_Click(object sender, RoutedEventArgs e)
         {
-            string tmp1 = this.textBox.Text;
+            var tmp1 = textBox.Text;
             if (!string.IsNullOrWhiteSpace(tmp1))
             {
-                tmp1 = System.IO.Path.GetDirectoryName(tmp1);
+                tmp1 = Path.GetDirectoryName(tmp1);
             }
 
             ////
@@ -78,7 +71,7 @@ namespace dbSend.GUI
             ////
 
             // Create OpenFileDialog 
-            Microsoft.Win32.OpenFileDialog dlg = new Microsoft.Win32.OpenFileDialog();
+            var dlg = new OpenFileDialog();
 
             if (Directory.Exists(tmp1))
             {
@@ -90,23 +83,22 @@ namespace dbSend.GUI
             dlg.Filter = "SQL Backup (.sql)|*.sql|All files (*.*)|*.*";
 
             // Display OpenFileDialog by calling ShowDialog method 
-            Nullable<bool> result = dlg.ShowDialog();
+            var result = dlg.ShowDialog();
 
 
             // Get the selected file name and display in a TextBox 
             if (result == true)
             {
                 // Open document 
-                string filename = dlg.FileName;
-                this.textBox.Text = filename;
-                bool result1 = doesFileExist;
+                var filename = dlg.FileName;
+                textBox.Text = filename;
+                var result1 = doesFileExist;
             }
-
         }
 
         private void textBox_KeyDown_1(object sender, KeyEventArgs e)
         {
-           bool result = doesFileExist;
+            var result = doesFileExist;
         }
     }
 }

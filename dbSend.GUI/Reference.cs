@@ -1,11 +1,10 @@
-﻿using System;
-using dbSend.Process;
+﻿using dbSend.Process;
 
 namespace dbSend.GUI
 {
     public class Reference
     {
-        private Entry entry;
+        private readonly Entry entry;
 
         public Reference()
         {
@@ -14,7 +13,7 @@ namespace dbSend.GUI
 
         internal string SetFileName
         {
-            set 
+            set
             {
                 if (!string.IsNullOrWhiteSpace(value))
                 {
@@ -41,10 +40,7 @@ namespace dbSend.GUI
 
         internal string GetPassword
         {
-            get
-            {
-                return entry.GetRandomPassword;
-            }
+            get { return entry.GetRandomPassword; }
         }
 
         internal string SetPassword
@@ -56,6 +52,16 @@ namespace dbSend.GUI
                     entry.SetPassword(value);
                 }
             }
+        }
+
+        internal bool IsSftpConnectionOk
+        {
+            get { return entry.TestSftp; }
+        }
+
+        internal bool DoIt
+        {
+            get { return entry.DoIt; }
         }
 
         internal bool SetSftpUser(string value)
@@ -83,22 +89,6 @@ namespace dbSend.GUI
                 return entry.SetSftpAddress(value);
             }
             return false;
-        }
-
-        internal bool IsSftpConnectionOk
-        {
-            get
-            {
-                return entry.TestSftp;
-            }
-        }
-
-        internal bool DoIt
-        {
-            get
-            {
-                return entry.DoIt;
-            }
         }
     }
 }

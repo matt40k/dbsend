@@ -1,17 +1,14 @@
 ﻿using System;
 using System.IO;
 using System.Threading;
-using NLog;
-using Renci.SshNet;
 
 namespace dbSend.Process
 {
-    class Transmit
+    internal class Transmit
     {
-        private static Logger logger = LogManager.GetCurrentClassLogger();
-
-        private Reference reference;
+        private static readonly Logger logger = LogManager.GetCurrentClassLogger();
         private SftpClient sftp;
+        private readonly Reference reference;
 
         public Transmit(Reference ref1)
         {
@@ -19,17 +16,11 @@ namespace dbSend.Process
             sftp = new SftpClient(reference.GetSftpAddress, 22, reference.GetSftpUser, reference.GetSftpPass);
         }
 
-        public void UpdateSettings()
-        {
-            sftp = null;
-            sftp = sftp = new SftpClient(reference.GetSftpAddress, 22, reference.GetSftpUser, reference.GetSftpPass);
-        }
-
         private string[] getFilesToTransmit
         {
             get
             {
-                string _path = reference.GetWorkDir;
+                var _path = reference.GetWorkDir;
                 return Directory.GetFiles(_path, "*.z*", SearchOption.TopDirectoryOnly);
             }
         }
@@ -50,6 +41,37 @@ namespace dbSend.Process
                 }
                 return true;
             }
+        }
+
+        public bool DoIt
+        {
+            get
+            {
+                if (!CheckConnection)
+                {
+                    Console.WriteLine("SFTP Connection failed");
+                    return false;
+                }
+
+                var _files = getFilesToTransmit;
+
+                foreach (var _file in _files)
+                {
+                    logger.Trace("File: " + _file);
+                    if (uploadFile(_file))
+                    {
+                        File.Delete(_file);
+                    }
+                }
+
+                return true;
+            }
+        }
+
+        public void UpdateSettings()
+        {
+            sftp = null;
+            sftp = sftp = new SftpClient(reference.GetSftpAddress, 22, reference.GetSftpUser, reference.GetSftpPass);
         }
 
         private bool uploadFile(string fileToUpload)
@@ -79,31 +101,6 @@ namespace dbSend.Process
                 return false;
             }
             return true;
-        }
-
-        public bool DoIt
-        {
-            get
-            {
-                if (!CheckConnection)
-                {
-                    Console.WriteLine("SFTP Connection failed");
-                    return false;
-                }
-
-                string[] _files = getFilesToTransmit;
-
-                foreach (string _file in _files)
-                {
-                    logger.Trace("File: " + _file);
-                    if (uploadFile(_file))
-                    {
-                        File.Delete(_file);
-                    }
-                }
-
-                return true;
-            }
         }
     }
 }
