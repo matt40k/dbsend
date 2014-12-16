@@ -1,4 +1,6 @@
-﻿namespace dbSend.Process
+﻿using NLog;
+
+namespace dbSend.Process
 {
     internal class Reference
     {

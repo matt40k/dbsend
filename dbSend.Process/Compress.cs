@@ -1,5 +1,7 @@
 ﻿using System;
 using System.IO;
+using Ionic.Zip;
+using NLog;
 
 namespace dbSend.Process
 {

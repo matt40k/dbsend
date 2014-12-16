@@ -1,6 +1,8 @@
 ﻿using System;
 using System.IO;
 using System.Threading;
+using NLog;
+using Renci.SshNet;
 
 namespace dbSend.Process
 {
